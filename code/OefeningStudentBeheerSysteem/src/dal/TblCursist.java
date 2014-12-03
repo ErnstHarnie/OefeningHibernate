@@ -62,6 +62,11 @@ public class TblCursist  implements java.io.Serializable {
     }
 
 
+     @Override
+    public String toString()
+    {
+        return getNaam();
+    }
 
 
 }

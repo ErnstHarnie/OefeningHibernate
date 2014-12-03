@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3-dec-2014 14:24:30 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dal.TblModule" table="tbl_module" catalog="studentbeheersysteemdb" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="vak" type="string">
+            <column name="Vak" not-null="true" />
+        </property>
+        <property name="richting" type="string">
+            <column name="Richting" not-null="true" />
+        </property>
+        <property name="modulenummer" type="string">
+            <column name="Modulenummer" length="64" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
