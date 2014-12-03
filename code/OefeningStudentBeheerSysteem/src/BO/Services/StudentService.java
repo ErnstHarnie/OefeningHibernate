@@ -5,10 +5,22 @@
  */
 package BO.Services;
 
+import dal.HibernateUtil;
+import dal.TblCursist;
+import oefeningstudentbeheersysteem.Cursist;
+import org.hibernate.Session;
+
 /**
  *
  * @author Ernst
  */
 public class StudentService {
-    
+
+    public void CursistToevoegen(TblCursist cursist) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.persist(cursist);
+        session.getTransaction().commit();
+    }
+
 }

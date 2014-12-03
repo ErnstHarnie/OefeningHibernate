@@ -5,6 +5,7 @@
  */
 package oefeningstudentbeheersysteem;
 
+import BO.Services.StudentService;
 import dal.HibernateUtil;
 import dal.TblCursist;
 import org.hibernate.Query;
@@ -118,17 +119,15 @@ public class Cursist extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
 
-        TblCursist c = new TblCursist();
-        c.setNaam(txtNaam.getText());
-        c.setEmail(txtEmail.getText());
-        c.setRichting(txtRichting.getText());
-        c.setTelefoon(txtTelefoon.getText());
-        session.persist(c);
-        session.getTransaction().commit();
-        
+        StudentService ss = new StudentService();
+        TblCursist cursist = new TblCursist();
+        cursist.setNaam(txtNaam.getText());
+        cursist.setEmail(txtEmail.getText());
+        cursist.setRichting(txtRichting.getText());
+        cursist.setTelefoon(txtTelefoon.getText());
+        ss.CursistToevoegen(cursist);
+
         FillList();
 
     }//GEN-LAST:event_btnAddActionPerformed
